@@ -17,6 +17,15 @@ android {
         jvmTarget = "1.8"
     }
 
+    signingConfigs {
+        release {
+            storeFile file(System.getenv("CM_KEYSTORE_PATH") ?: "keystore.jks")
+            storePassword System.getenv("CM_KEYSTORE_PASSWORD") ?: ""
+            keyAlias System.getenv("CM_KEY_ALIAS") ?: ""
+            keyPassword System.getenv("CM_KEY_PASSWORD") ?: ""
+        }
+    }
+
     defaultConfig {
         applicationId = "com.example.mathmind"
         minSdk = 21
