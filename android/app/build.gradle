@@ -2,7 +2,6 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
-    android.experimental.newDsl=false
 }
 
 android {
@@ -19,15 +18,6 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8
     }
 
-    signingConfigs {
-        release {
-            storeFile file("/Users/hf/mathmind.jks")
-            storePassword "mathmind123"
-            keyAlias "mathmind"
-            keyPassword "mathmind123"
-        }
-    }
-
     defaultConfig {
         applicationId = "com.example.mathmind"
         minSdk = flutter.minSdkVersion
@@ -38,7 +28,13 @@ android {
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.release
+            signingConfig = signingConfigs.debug
         }
     }
+}
+
+android.experimental.newDsl=false
+
+flutter {
+    source = "../.."
 }
