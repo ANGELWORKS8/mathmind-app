@@ -29,7 +29,7 @@ android {
         release {
             minifyEnabled false
             shrinkResources false
-            signingConfig = signingConfigs.debug
+            signingConfig = signingConfigs.release
         }
     }
 }
